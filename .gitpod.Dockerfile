@@ -10,7 +10,7 @@ RUN	pacman-key --init && pacman-key --populate \
 	autoconf automake bzip2 pacman-contrib file gcc imagemagick glibc db libevent libffi gdbm tdb glib2 gmp-ecm libjpeg-turbo pam-krb5 xz libmaxminddb ncurses libpng postgresql readline sqlite openssl libtool libwebp libxml++ libxslt libyaml make patch unzip xz-utils zlib perl \
 	zip bash-completion htop jq less man-db nano sudo time vim multitail lsof \
 &&	locale-gen en_US.UTF-8 \
-&&	for pkgbuilds in libcurl-openssl-1.0 libmysqlclient-dev; do makepkg -si $pkgbuilds; done \
+&&	for pkgbuilds in libcurl-openssl-1.0 libmysqlclient-dev; do yes|makepkg -si $pkgbuilds; done \
 &&	yes | pacman -Sccccv
 
 ENV LANG=en_US.UTF-8
