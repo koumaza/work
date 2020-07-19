@@ -1,1 +1,2 @@
-image: archlinux
+image:
+  file: .gitpod.Dockerfile
