@@ -15,6 +15,8 @@ RUN	pacman-key --init && pacman-key --populate \
 #&&	sed -i.bak -e '/E_ROOT/d' /usr/bin/makepkg && for pkgbuilds in libcurl-openssl-1.0 libmysqlclient-dev; do git clone --depth=1 --single-branch https://aur.archlinux.org/${pkgbuilds}.git&& cd $pkgbuilds && yes|makepkg -si $pkgbuilds; done \
 &&	yes | pacman -Sccccv
 
+RUN	curl -Ls https://gist.github.com/koumaza/c65e8e9e0d7aacdbdc8d14cb893b7433/raw/fdcb34c13d287caa6df4574b623fc183deec362c/os-release_focal.txt > /etc/os-release
+
 ENV	LANG=en_US.UTF-8
 
 ### Gitpod user ###
