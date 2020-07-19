@@ -12,7 +12,7 @@ RUN	pacman-key --init && pacman-key --populate \
 		autoconf automake bzip2 pacman-contrib file gcc imagemagick glibc db libevent libffi gdbm tdb glib2 gmp-ecm libjpeg-turbo pam-krb5 xz libmaxminddb ncurses libpng postgresql readline sqlite openssl libtool libwebp libxml++ libxslt libyaml make patch unzip zlib perl \
 		zip bash-completion htop jq less man-db nano sudo time vim multitail lsof \
 &&	locale-gen en_US.UTF-8 \
-&&	sed -i.bak -e '/E_ROOT/d' /usr/bin/makepkg && for pkgbuilds in libcurl-openssl-1.0 libmysqlclient-dev; do yes|makepkg -si $pkgbuilds; done \
+&&	sed -i.bak -e '/E_ROOT/d' /usr/bin/makepkg && for pkgbuilds in libcurl-openssl-1.0 libmysqlclient-dev; do git clone --depth=1 --single-branch https://aur.archlinux.org/${pkgbuilds}.git&& cd $pkgbuilds && yes|makepkg -si $pkgbuilds; done \
 &&	yes | pacman -Sccccv
 
 ENV	LANG=en_US.UTF-8
